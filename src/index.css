@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+}
+
+body {
+    background-color: rgba(37, 35, 35, 1);
+}
+
+.App {
+    width: 100%;
+}
+
+nav {
+    padding: 15px 4rem;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    width: 80%;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: end;
+    gap: 10px;
+}
+
+.logo h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.day {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: rgb(207 199 199);
+}
+
+.day span {
+    cursor: pointer;
+}
+
+.today {
+    border-bottom: 2px solid rgba(105, 93, 93, 1);
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding-bottom: 5px;
+    font-weight: 500;
+    width: 85px;
+}
+
+.m-button {
+    display: flex;
+    justify-content: start;
+    padding: 2rem 4rem;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.3rem;
+}
+
+.switch-button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    justify-content: center;
+    width: 100px;
+    height: 37px;
+}
+
+.switch-button .switch-outer {
+    height: 100%;
+    background: #252532;
+    width: 115px;
+    border-radius: 165px;
+    -webkit-box-shadow: inset 0px 5px 10px 0px #16151c, 0px 3px 6px -2px #403f4e;
+    box-shadow: inset 0px 5px 10px 0px #16151c, 0px 3px 6px -2px #403f4e;
+    border: 1px solid #32303e;
+    padding: 6px;
+    padding-right: 0px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.switch-button .switch-outer input[type="checkbox"] {
+    opacity: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: absolute;
+    width: fit-content;
+}
+
+.switch-button .switch-outer .button-toggle {
+    height: 24px;
+    width: 24px;
+    background: -webkit-gradient(linear,
+            left top,
+            left bottom,
+            from(#3b3a4e),
+            to(#272733));
+    background: -o-linear-gradient(#3b3a4e, #272733);
+    background: linear-gradient(#3b3a4e, #272733);
+    border-radius: 100%;
+    -webkit-box-shadow: inset 0px 5px 4px 0px #424151, 0px 4px 15px 0px #0f0e17;
+    box-shadow: inset 0px 5px 4px 0px #424151, 0px 4px 15px 0px #0f0e17;
+    position: relative;
+    z-index: 2;
+    -webkit-transition: left 0.3s ease-in;
+    -o-transition: left 0.3s ease-in;
+    transition: left 0.3s ease-in;
+    left: 0;
+}
+
+.switch-button .switch-outer input[type="checkbox"]:checked+.button .button-toggle {
+    left: 66%;
+}
+
+.switch-button .switch-outer input[type="checkbox"]:checked+.button .button-indicator {
+    -webkit-animation: indicator 1s forwards;
+    animation: indicator 1s forwards;
+}
+
+.switch-button .switch-outer .button {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+
+.switch-button .switch-outer .button-indicator {
+    height: 25px;
+    width: 25px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 50%;
+    border: 3px solid #5629d3;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    right: 10px;
+    position: relative;
+}
+
+.search {
+    margin: auto;
+    width: fit-content;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.search img {
+    position: absolute;
+    left: 14px;
+    top: 7px;
+}
+
+input {
+    background-color: rgba(217, 217, 217, 1);
+    outline: none;
+    border: none;
+    padding: 10px 3rem;
+    width: 510px;
+    color: rgb(28, 26, 26);
+    font-size: 1.2rem;
+    border-radius: 25px;
+}
+
+.search button {
+    background-color: rgba(154, 18, 188, 1);
+    outline: none;
+    border: none;
+    font-size: 1.4rem;
+    padding: 7px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.search button:hover{
+    background-color: rgba(123, 9, 152, 1);
+}
+
+.output {
+    width: 750px;
+    height: 380px;
+    margin: 2rem auto;
+    background:rgba(173, 54, 203, 1);
+    background: linear-gradient(140deg, rgba(173, 54, 203, 1) 0%, rgba(0, 0, 0, 1) 84%);
+    border-radius: 20px;
+}
+
+.output h1 {
+    font-size: 2rem;
+    font-weight: normal;
+}
+
+.location{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding: 2rem;
+    padding-bottom: 1rem;
+    gap: 10px;
+}
+
+.output .temperature span {
+    font-size: 5rem;
+    font-weight: lighter;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.temperature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.temperature .temp {
+    margin: 0 29px;
+}
+
+.m-info {
+    padding: 4rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.m-info>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+@media screen and (max-width:750px) {
+    .search {
+        flex-direction: column;
+    }
+
+    .output {
+        width: 90%;
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-around;
+        padding: 15px 0;
+
+    }
+
+    input {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .m-info {
+        padding: 4rem 1rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .output {
+        height: 600px;
+    }
+
+    .m-info>div {
+        justify-content: space-between;
+        flex-direction: row;
+        width: 80%;
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width:440px) {
+
+    :root{
+        font-size: 14px;
+    }
+
+    input{
+        width: 80%;
+    }
+
+    .search{
+        width: 70vw;
+    }
+
+    .output{
+        height:500px;
+    }
+
+     .output .temperature span{
+        font-size: 3rem;
+    }
+
+    .location{
+        padding: 20px 15px;
+        padding-bottom: 1rem;
+    }
+
+    .search img{
+       left: -11px;
+    }
+
+    .m-button{
+        justify-content: center;
+    }
+
+    .m-info{
+        padding: 3rem 0;
+    }
+}
+
+@-webkit-keyframes indicator {
+    30% {
+        opacity: 0;
+    }
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        border: 3px solid #60d480;
+        left: -68%;
+    }
+}
+
+@keyframes indicator {
+    30% {
+        opacity: 0;
+    }
+
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        border: 3px solid #60d480;
+        left: -68%;
+    }
+}
