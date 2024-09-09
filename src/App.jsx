@@ -13,6 +13,7 @@ function App() {
   const [wind, setWind] = useState('2')
   const Ref = useRef(false)
   const degRef = useRef()
+  const lodRef = useRef()
 
   useEffect(() => {
     if (Ref.current === false) {
@@ -24,7 +25,7 @@ function App() {
   }, [])
 
   const temperature = async () => {
-
+    lodRef.current.innerHTML=`<img src="src/assets/loder.svg" alt="" />`
     let cit = 'islamabad'
     if (data != '') {
       setCity(data)
@@ -47,7 +48,8 @@ function App() {
       degRef.current = result
       if (result.error) {
         setCity(result.error.message)
-        console.log('err')
+        lodRef.current.innerHTML=`0&deg;${deg}`
+        return
       }
 
       if (deg == 'C') {
@@ -62,6 +64,7 @@ function App() {
       setAir(result.current.pressure_mb)
       setWind(result.current.wind_mph)
       setCloud(result.current.cloud)
+      lodRef.current.innerHTML=`${temp}&deg;${deg}`
 
     } catch (error) {
       console.error(error);
@@ -82,6 +85,7 @@ function App() {
       setdeg('C')
       settemp(degRef.current.current.temp_c)
     }
+
   }
 
   return (
@@ -125,7 +129,7 @@ function App() {
             </div>
             <div className="temperature">
               <img className='temp' src="src\assets\temperature.svg" alt="" />
-              <span>{temp}&deg;{deg}</span>
+              <span ref={lodRef}>{temp}&deg;{deg}</span>
               <img src="src\assets\cloud.svg" alt="" />
             </div>
             <div className="m-info">
